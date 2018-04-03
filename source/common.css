@@ -12,3 +12,14 @@
   margin: auto;
   text-align: center;
 }
+
+.rightBlock {
+  display: table;
+  margin: auto;
+  text-align: right;
+}
+
+.formSchedule > * {
+    display: block;
+    margin: 4px 0;
+}
