@@ -19,7 +19,6 @@
   text-align: right;
 }
 
-.formSchedule > * {
-    display: block;
-    margin: 4px 0;
+.formBlock > * {
+    margin: 8px 0;
 }
