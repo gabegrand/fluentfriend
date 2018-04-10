@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="common.css" rel="stylesheet">
   <title>Fluent Friend</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
   <script src="main.js"></script>
+  <script src="index.js"></script>
 </head>
   <body>
     <div class="container" align="center">
@@ -19,10 +21,10 @@
       <div class="row" align="center">
         <div class="col-3"></div>
         <div class="col-3">
-          <button type="button" class="btn btn-primary" onclick="location.href='learners.html';">I'm learning English.</button>
+          <button id="learner" type="button" class="btn btn-primary" onclick="myFunc('learner')">I'm learning English.</button>
         </div>
         <div class="col-3">
-          <button type="button" class="btn btn-primary" onclick="location.href='speakers.html';">I already speak English.</button>
+          <button id="speaker" type="button" class="btn btn-primary" onclick="myFunc('speaker')">I already speak English.</button>
         </div>
         <div class="col-3"></div>
       </div>

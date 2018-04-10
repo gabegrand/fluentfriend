@@ -1,12 +1,13 @@
 $( document ).ready(function() {
-
-  console.log(USERS);
-
-  // var profileList = $("#profileList");
+  let user_role = localStorage.getItem("user_role");
+  if (user_role == "learner") {
+    var match_role = "speaker";
+  }
+  else {
+    var match_role = "learner";
+  }
   let profileList = document.getElementById("profileList");
-  console.log(profileList);
-
-  profileList.innerHTML = USERS.map(u => buildProf(u)).join('');
+  profileList.innerHTML = USERS.filter(u => u.role == match_role).map(u => buildProf(u)).join('');
 });
 
 function buildProf(obj) {
