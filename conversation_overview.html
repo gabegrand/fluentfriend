@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="common.css" rel="stylesheet">
+  <title>Fluent Friend</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="conversation_overview.js"></script>
+	<script src="main.js"></script>
+	<script src="data.js"></script>
+</head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <div id="title"></div>
+        <div id="subtitle"></div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-4">
+          <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Introductions</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Family</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Home</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Hobbies</a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel mattis dui. Ut sodales libero ex, at elementum elit accumsan a. Suspendisse consequat vehicula metus, eu fringilla nulla sollicitudin ut. Cras feugiat bibendum dolor, vel blandit nisi varius a. Nulla pellentesque fringilla porttitor. Proin sodales odio id justo sodales, eget faucibus lorem vestibulum. Nam vel mauris vel tellus tempor interdum. Praesent vitae vestibulum velit. Vivamus felis turpis, placerat at magna vitae, ornare ullamcorper justo.</div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Aliquam interdum aliquet lobortis. Cras rhoncus ac magna ut pellentesque. Cras tincidunt orci non diam cursus vehicula. Maecenas vulputate consequat nisi, non tempor risus porttitor eget. Morbi aliquet, massa bibendum commodo luctus, tortor dolor suscipit libero, a posuere felis augue non tortor. Cras egestas eleifend luctus. Aliquam sit amet porta neque, ac gravida augue. Sed vel scelerisque odio. Maecenas a faucibus felis. Etiam augue justo, malesuada vel blandit vel, consectetur non neque. Donec vulputate fermentum ipsum, quis molestie neque laoreet at. Praesent ut lobortis neque. Suspendisse non sapien hendrerit metus aliquet consequat id ac leo. Morbi nec maximus leo.</div>
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Pellentesque ex est, ultricies et purus non, tempus rhoncus magna. Maecenas arcu magna, posuere ac neque ac, fermentum dignissim mi. Quisque iaculis dui et efficitur blandit. Sed nulla eros, consequat sit amet massa sed, finibus luctus nunc. Integer non quam pulvinar, lacinia diam ut, faucibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum pellentesque ipsum, non blandit nisl imperdiet sed. Aenean ac leo nibh. Curabitur lacinia risus laoreet enim congue, id tristique lectus vehicula. Quisque bibendum suscipit sagittis.</div>
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Mauris ac urna nec diam efficitur vestibulum in sed justo. Vivamus faucibus lorem at turpis blandit ultricies. Etiam luctus augue sed mauris condimentum, a maximus risus vehicula. Curabitur vitae nibh sed velit lobortis pretium ac eget dui. Pellentesque porta placerat hendrerit. Maecenas ac aliquam elit. Aliquam sagittis vulputate diam, ut tempus massa pulvinar ac. Proin ante lectus, congue ut volutpat finibus, aliquet sit amet arcu.</div>
+          </div>
+        </div>
+      </div>
+    <br/>
+    <div><button type="button" class="btn btn-success" onclick="location.href='video_call.html';"><i class="fa fa-phone" aria-hidden="true"></i>   Call Now!</button></div>
+    </div>
+  </body>
+</html>
