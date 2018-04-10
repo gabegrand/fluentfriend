@@ -14,7 +14,7 @@ $( document ).ready(function() {
 function buildScheduledProf(obj) {
 	return `<div class="row border-bottom pb-4">
 		<div class="col-md-3 profile p">
-			<img src="media/${obj.img}" class="img-fluid" />
+			<img src="media/${obj.img}" width="250px" height="250px" />
 		</div>
 		<div class="col-md-6">
 			<h4>${obj.name}</h4>
