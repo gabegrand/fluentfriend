@@ -10,6 +10,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="common.css" rel="stylesheet">
 	<title>Fluent Friend</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+	<script src="scheduled.js"></script>
+	<script src="main.js"></script>
+	<script src="data.js"></script>
 </head>
 
 <body>
@@ -18,30 +22,8 @@
 			<h1>Scheduled calls</h1>
 			<p class="lead">Begin or reschedule a call.</p>
 		</div>
-		<div class="row border-bottom pb-4">
-			<div class="col-md-3 profile p">
-				<img src="media/stock_female.png" class="img-fluid" />
-			</div>
-			<div class="col-md-6">
-				<h4>Sheila</h4>
-				<p>Location: Cambridge, MA</p>
-				<button type="button" class="btn btn-primary"><i class="fa fa-commenting-o" aria-hidden="true"></i>  Send message</button>
-			</div>
-			<div class="col-md-3">
-				<div class="rightBlock formBlock profile p-3">
-					<p>Conversation Date & Time</p>
-					<div>
-						<i class="fa fa-calendar" aria-hidden="true"></i>
-						<input size="18" type="text" value="2018-04-05" readonly class="form_datetime"><br>
-					</div>
-					<div>
-						<i class="fa fa-clock-o" aria-hidden="true"></i>
-						<input size="18" type="text" value="02:30-3:00pm" readonly class="form_datetime">
-					</div>
-					<div><button type="button" class="btn btn-primary"><i class="fa fa-repeat" aria-hidden="true"></i>   Propose new date & time</button></div>
-					<div><button type="button" class="btn btn-success" onclick="location.href='video_call.html';"><i class="fa fa-phone" aria-hidden="true"></i>   Call Now!</button></div>
-				</div>
-			</div>
+		<div id="scheduledList" class="row">
+
 		</div>
 		<div class="row">
 			<div class="leftBlock p-3" align="left">
