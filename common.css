@@ -22,3 +22,7 @@
 .formBlock > * {
     margin: 8px 0;
 }
+
+.btn-space {
+    margin: 5px;
+}
