@@ -33,12 +33,7 @@ function buildProf(obj) {
 }
 
 function addScheduled(uid) {
-	console.log(uid);
-	scheduledUsers.push({
-		user: uid,
-		date: new Date(+(new Date()) - Math.floor(Math.random()*10000000000)),
-		time: ,
-	});
+	scheduledUsers.push(uid);
 	localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers));
 	location.href="scheduled.html";
 }
