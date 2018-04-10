@@ -1,11 +1,11 @@
+let scheduledUsers = [];
+
 $( document ).ready(function() {
-	let scheduledUsers = [];
 	let scheduledState = localStorage.getItem('scheduled_users');
 	if (scheduledState != null) {
 		scheduledUsers = JSON.parse(scheduledState);
 	}
 
-	console.log(scheduledUsers);
 	let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 
@@ -33,8 +33,16 @@ function buildScheduledProf(obj) {
 					<input size="18" type="text" value="02:30-3:00pm" readonly class="form_datetime">
 				</div>
 				<div><button type="button" class="btn btn-primary"><i class="fa fa-repeat" aria-hidden="true"></i>   Propose new date & time</button></div>
-				<div><button type="button" class="btn btn-success" onclick="location.href='video_call.html';"><i class="fa fa-phone" aria-hidden="true"></i>   Call Now!</button></div>
+				<div><button type="button" class="btn btn-success" onclick="location.href='video_call.html';"><i class="fa fa-phone" aria-hidden="true"></i>   Call now!</button></div>
+				<div><button type="button" class="btn btn-danger" onclick="cancelCall(${obj.uid})"><i class="fa fa-times" aria-hidden="true"></i>   Cancel call</button></div>
 			</div>
 		</div>
 	</div>`;
+}
+
+function cancelCall(uid) {
+	scheduledUsers = scheduledUsers.filter(u => u != uid);
+	localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers.filter(u => u != uid)));
+	let scheduledList = document.getElementById("scheduledList");
+  scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 }
