@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-  localStorage.setItem("curr_call_uid", 1);
   let curr_call_uid = parseInt(localStorage.getItem("curr_call_uid"));
   var curr_call_name = USERS[curr_call_uid].name;
 

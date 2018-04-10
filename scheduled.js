@@ -33,11 +33,16 @@ function buildScheduledProf(obj) {
 					<input size="18" type="text" value="02:30-3:00pm" readonly class="form_datetime">
 				</div>
 				<div><button type="button" class="btn btn-primary"><i class="fa fa-repeat" aria-hidden="true"></i>   Propose new date & time</button></div>
-				<div><button type="button" class="btn btn-success" onclick="location.href='video_call.html';"><i class="fa fa-phone" aria-hidden="true"></i>   Call now!</button></div>
+				<div><button type="button" class="btn btn-success" onclick="startCall(${obj.uid})"><i class="fa fa-phone" aria-hidden="true"></i>   Call now!</button></div>
 				<div><button type="button" class="btn btn-danger" onclick="cancelCall(${obj.uid})"><i class="fa fa-times" aria-hidden="true"></i>   Cancel call</button></div>
 			</div>
 		</div>
 	</div>`;
+}
+
+function startCall(uid) {
+	localStorage.setItem('curr_call_uid', uid);
+	location.href='conversation_overview.html';
 }
 
 function cancelCall(uid) {
