@@ -7,7 +7,7 @@ $( document ).ready(function() {
 	}
 
 	let scheduledList = document.getElementById("scheduledList");
-  scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
+ 	scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 
 });
 
@@ -49,5 +49,5 @@ function cancelCall(uid) {
 	scheduledUsers = scheduledUsers.filter(u => u != uid);
 	localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers.filter(u => u != uid)));
 	let scheduledList = document.getElementById("scheduledList");
-  scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
+  	scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 }
