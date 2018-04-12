@@ -47,7 +47,7 @@ function startCall(uid) {
 
 function cancelCall(uid) {
 	scheduledUsers = scheduledUsers.filter(u => u != uid);
-	localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers.filter(u => u != uid)));
+	localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers));
 	let scheduledList = document.getElementById("scheduledList");
   	scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 }
