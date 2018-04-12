@@ -7,7 +7,7 @@ $( document ).ready(function() {
     }
 
     let partnerPic = document.getElementById("partnerPic");
-    partnerPic.innerHTML = `<img src="media/${curUser.img}" class="img-fluid" />`
+    partnerPic.innerHTML = `<img src="media/${curUser.img}" height="350px" width="350px" class="img-fluid" />`
 
     let partnerInfo = document.getElementById("partnerInfo");
     partnerInfo.innerHTML = `<h4>${curUser.name}</h4>
