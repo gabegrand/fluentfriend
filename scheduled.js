@@ -8,7 +8,13 @@ $(document).ready(function() {
 
   let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
-
+	console.log(scheduledUsers);
+	for (let uid in scheduledUsers) {
+		console.log('#datetimepicker_' + scheduledUsers[uid]);
+		$('#datetimepicker_' + scheduledUsers[uid]).datetimepicker({
+			defaultDate: (new Date().getMonth() + 1) + "/" + (new Date().getDate() + 1) + "/" + new Date().getFullYear(),
+		});
+	}
 });
 
 function buildScheduledProf(obj) {
@@ -24,15 +30,16 @@ function buildScheduledProf(obj) {
 		<div class="col-md-4">
 			<div class="formBlock p-3 darkbox">
 				<p>Conversation Date & Time</p>
-				<div>
-					<i class="fa fa-calendar" aria-hidden="true"></i>
-					<input size="18" type="text" value="2018-04-05" readonly class="form_datetime" id="date_${obj.uid}"><br>
-				</div>
-				<div>
-					<i class="fa fa-clock-o" aria-hidden="true"></i>
-					<input size="18" type="text" value="02:30 PM" readonly class="form_datetime" id="time_${obj.uid}">
-				</div>
-				<div><button type="button" class="btn btn-primary user_button" onclick="rescheduleCall(${obj.uid})"><i class="fa fa-repeat" aria-hidden="true"></i>   Propose new date & time</button></div>
+
+				<div class="form-group">
+                <div class="input-group date" id="datetimepicker_${obj.uid}" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker_${obj.uid}"/>
+                    <div class="input-group-append" data-target="#datetimepicker_${obj.uid}" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+
 				<div><button type="button" class="btn btn-success user_button" onclick="startCall(${obj.uid})"><i class="fa fa-phone" aria-hidden="true"></i>   Call now!</button></div>
 				<div><button type="button" class="btn btn-danger user_button" onclick="cancelCall(${obj.uid})"><i class="fa fa-times" aria-hidden="true"></i>   Cancel call</button></div>
 			</div>
@@ -50,36 +57,4 @@ function cancelCall(uid) {
   localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers));
   let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
-}
-
-function rescheduleCall(uid) {
-  document.getElementById("time_" + uid).value = randomTime();
-  document.getElementById("date_" + uid).value = randomDate(new Date(), new Date(new Date().setFullYear(new Date().getFullYear() + 1)));
-}
-
-function randomTime() {
-  hrs = Math.round(Math.random() * 24);
-  mins = Math.round(Math.random() * 60);
-  let hFormat = (hrs < 10 ? "0" : "");
-  let mFormat = (mins < 10 ? "0" : "");
-  let amPm = (hrs < 12 ? "AM" : "PM");
-  let is12 = (hrs % 12 === 0);
-
-  return amPm === "AM" && !is12 ? String(hFormat + hrs + ":" + mFormat + mins + " " + amPm) :
-    "AM" && is12 ? String(12 + ":" + mFormat + mins + " " + amPm) :
-    is12 ? String(hFormat + hrs + ":" + mFormat + mins + " " + amPm) :
-    String(hFormat + (hrs - 12) + ":" + mFormat + mins + " " + amPm);
-
-}
-
-function randomDate(start, end) {
-  let d = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())),
-    month = '' + (d.getMonth() + 1),
-    day = '' + d.getDate(),
-    year = d.getFullYear();
-
-  if (month.length < 2) month = '0' + month;
-  if (day.length < 2) day = '0' + day;
-
-  return [year, month, day].join('-');
 }
