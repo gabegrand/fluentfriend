@@ -1,3 +1,5 @@
+let reportedUsers = [];
+
 $( document ).ready(function() {
     let curUser = "Marcus";
     let curr_call_uid = localStorage.getItem('curr_call_uid');
@@ -16,6 +18,19 @@ $( document ).ready(function() {
                             <button type="button" class="btn btn-primary m"><i class="fa" aria-hidden="true"></i>I'm Stuck!</button>
                             <button type="button" class="btn btn-danger ml-4" onclick="location.href='feedback.html';"><i class="fa fa-phone" aria-hidden="true"></i>  End Call</button>
                             <div class="row-md-8 formBlock">
-                                <button type="button" class="btn btn-danger"><i class="fa fa-flag" aria-hidden="true"></i>  Report Inappropriate Call</button>
+                                <button type="button" class="btn btn-danger" onclick="reportUser();"><i class="fa fa-flag" aria-hidden="true"></i>  Report</button>
                             </div>`
 });
+
+function reportUser(){
+	let curr_call_uid = parseInt(localStorage.getItem('curr_call_uid'));
+	let reportedState = localStorage.getItem('reported_users');
+	if (reportedState != null) {
+		reportedUsers = JSON.parse(reportedState);
+	}
+
+	reportedUsers.push(curr_call_uid);
+	localStorage.setItem('reported_users', JSON.stringify(reportedUsers));
+
+	location.href='feedback.html';
+}
