@@ -1,4 +1,5 @@
 let scheduledUsers = [];
+let reportedUsers = [];
 
 $( document ).ready(function() {
 	// localStorage.clear();
@@ -14,10 +15,14 @@ $( document ).ready(function() {
 	if (scheduledState != null) {
 		scheduledUsers = JSON.parse(scheduledState);
 	}
-	console.log(scheduledUsers);
+
+	let reportedState = localStorage.getItem('reported_users');
+	if (reportedState != null) {
+		reportedUsers = JSON.parse(reportedState);
+	}
 
   let profileList = document.getElementById("profileList");
-  profileList.innerHTML = USERS.filter(u => u.role == match_role && !scheduledUsers.includes(u.uid)).map(u => buildProf(u)).join('');
+  profileList.innerHTML = USERS.filter(u => u.role == match_role && !scheduledUsers.includes(u.uid) && !reportedUsers.includes(u.uid)).map(u => buildProf(u)).join('');
 });
 
 function buildProf(obj) {

@@ -1,3 +1,5 @@
+let reportedUsers = [];
+
 $( document ).ready(function() {
     let curUser = "Marcus";
     let curr_call_uid = localStorage.getItem('curr_call_uid');

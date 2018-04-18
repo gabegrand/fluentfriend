@@ -15,23 +15,35 @@
 
 <body>
 	<div class="container">
-		<div class="page-header">
+		<div class="page-header" align="center">
 			<h1>Call Feedback</h1>
-			<p class="lead">Please tell us a little bit about how your call went.</p>
+			<p class="lead">How did your call go?</p>
 		</div>
-		<div class="centerBlock formBlock border rounded p-2">
-			<p class="lead">Would you like to have a future conversation with this person?</p>
-			<div class="form-check ml-4" align="left">
-				<input class="form-check-input" type="radio" name="feedback" value="yes">
-				<label class="form-check-label">Yes, I would like to talk to this person again.</label>
+		<div class="centerBlock formBlock darkbox">
+			<div class="question">
+				<p class="lead">Would you like to have a future conversation with this person?</p>
+				<div class="form-check ml-4" align="left">
+					<input class="form-check-input" type="radio" name="feedback" value="yes">
+					<label class="form-check-label">Yes, I would like to talk to this person again.</label>
+				</div>
+				<div class="form-check ml-4" align="left">
+					<input class="form-check-input" type="radio" name="feedback" value="no">
+					<label class="form-check-label">No, I would not like to talk to this person again.</label>
+				</div>
+				<div class="form-check ml-4" align="left">
+					<input class="form-check-input" type="radio" name="feedback" value="report">
+					<label class="form-check-label">I would like to report inappropriate behavior.</label>
+				</div>
 			</div>
-			<div class="form-check ml-4" align="left">
-				<input class="form-check-input" type="radio" name="feedback" value="no">
-				<label class="form-check-label">No, I would not like to talk to this person again.</label>
+			<div class="slidecontainer">
+				<p class="lead">Please rate your partner on their friendliness.</p>
+				<input type="range" min="1" max="100" value="50" class="slider" id="rateFriendliness" oninput="friendlinessOutputId.value = Math.round(rateFriendliness.value/10)">
+				<output name="friendlinessOutput" id="friendlinessOutputId">5</output>
 			</div>
-			<div class="form-check ml-4" align="left">
-				<input class="form-check-input" type="radio" name="feedback" value="report">
-				<label class="form-check-label">I would like to report inappropriate behavior.</label>
+			<div class="slidecontainer">
+				<p class="lead">Please rate your partner on their patience.</p>
+				<input type="range" min="1" max="100" value="50" class="slider" id="ratePatience" oninput="patienceOutputId.value = Math.round(ratePatience.value/10)">
+				<output name="patienceOutput" id="patienceOutputId">5</output>
 			</div>
 			<button type="submit" class="btn btn-primary" onclick="reSchedule();">Submit</button>
 		</div>
