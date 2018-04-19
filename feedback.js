@@ -2,7 +2,7 @@ let reportedUsers = []
 
 function reSchedule(){
     let selection = document.querySelector('input[name = "feedback"]:checked').value;
-    console.log(selection)
+    console.log(selection);
 
 		let curr_call_uid = parseInt(localStorage.getItem('curr_call_uid'));
 
