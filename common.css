@@ -38,8 +38,12 @@ body {
   margin: 5px;
 }
 
+.btn-check {
+	margin-left: 5px;
+}
+
 .user_button {
-  width: 90%;
+  width: 100%;
   margin-bottom: 10px;
 }
 

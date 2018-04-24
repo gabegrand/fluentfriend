@@ -14,6 +14,11 @@ $(document).ready(function() {
 		$('#datetimepicker_' + scheduledUsers[uid]).datetimepicker({
 			defaultDate: (new Date().getMonth() + 1) + "/" + (new Date().getDate() + 1) + "/" + new Date().getFullYear(),
 		});
+
+		$('#datetimepicker_' + scheduledUsers[uid]).on("change.datetimepicker", function (e) {
+        // $('#datetimepicker_' + scheduledUsers[uid]).datetimepicker('minDate', e.date);
+				console.log(e.date);
+    });
 	}
 });
 
@@ -37,6 +42,7 @@ function buildScheduledProf(obj) {
                     <div class="input-group-append" data-target="#datetimepicker_${obj.uid}" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
+										<button type="button" class="btn btn-success btn-check"><i class="fa fa-check" aria-hidden="true"></i></button>
                 </div>
             </div>
 
