@@ -31,16 +31,24 @@ body {
 }
 
 .formBlock > * {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 
 .btn-space {
-    margin: 5px;
+  margin: 5px;
 }
 
 .user_button {
   width: 90%;
   margin-bottom: 10px;
+}
+
+.tab-content {
+  text-align: left;
+}
+
+.conversationHelper.collapse.show {
+  display: flex;
 }
 
 #carouselExampleIndicators {
@@ -51,28 +59,27 @@ body {
   height: 300px;
 }
 
-<<<<<<< HEAD
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   z-index: -1;
-=======
+}
+
 .slidecontainer {
-    width: 100%; /* Width of the outside container */
+  width: 100%; /* Width of the outside container */
 }
 
 .slider {
-    appearance: none;
-    width: 50%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    transition: opacity .2s;
+  appearance: none;
+  width: 50%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  transition: opacity .2s;
 }
 
 .slider:hover {
-    opacity: 1; /* Fully shown on mouse-over */
->>>>>>> 5052af59d568f3a478b01699a95bf0a6d6944fad
+  opacity: 1; /* Fully shown on mouse-over */
 }

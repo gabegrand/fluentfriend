@@ -16,59 +16,84 @@
 	<script src="data.js"></script>
 </head>
   <body>
-    <div class="container">
+    <div class="container" align="center">
       <div class="page-header darkbox">
         <div id="title"></div>
         <div id="subtitle"></div>
       </div>
       <hr/>
-      <div class="row">
-        <div class="col-4">
-          <div class="list-group" id="list-tab" role="tablist">
-            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Introductions</a>
-            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Family</a>
-            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Home</a>
-            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Hobbies</a>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active darkbox" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-              <ul>
-                <li>Say hello!</li>
-                <li>What is your name?</li>
-                <li>Where are you from?</li>
-                <li>What do you do for work?</li>
-              </ul>
-            </div>
-            <div class="tab-pane fade darkbox" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-              <ul>
-                <li>Where does your family live?</li>
-                <li>Do you have any siblings?</li>
-                <li>Talk about a favorite childhood experience.</li>
-              </ul>
-            </div>
-            <div class="tab-pane fade darkbox" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-              <ul>
-                <li>Do you live in a house or an apartment?</li>
-                <li>Who lives at home with you?</li>
-                <li>Do you have any pets?</li>
-                <li>How many different places have you lived in your life?</li>
-              </ul>
-            </div>
-            <div class="tab-pane fade darkbox" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-              <ul>
-                <li>Do you have any hobbies?</li>
-                <li>Tell your conversational partner about your favorite weekend activity.</li>
-                <li>Do you play any musical instruments? Sing? Dance?</li>
-                <li>What is your favorite movie / TV show?</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
+  		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval=false>
+
+  		  <div class="carousel-inner">
+  		    <div class="carousel-item active">
+  					<div class="card" style="width: 18rem;">
+  					  <div class="card-body">
+  					    <h5 class="card-title">Introductions</h5>
+  							<ul class="text-left">
+  								<li>Say hello!</li>
+  								<li>What is your name?</li>
+  								<li>Where are you from?</li>
+  								<li>What do you do for work?</li>
+  							</ul>
+  							<!-- <a class="card-link" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous Topic</a> -->
+  							<a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next">Next Topic</a>
+  					  </div>
+  					</div>
+  		    </div>
+  				<div class="carousel-item">
+  					<div class="card" style="width: 18rem;">
+  					  <div class="card-body">
+  					    <h5 class="card-title">Family</h5>
+  							<ul class="text-left">
+                  <li>Where does your family live?</li>
+                  <li>Do you have any siblings?</li>
+                  <li>Talk about a favorite childhood experience.</li>
+                </ul>
+  							<a class="card-link" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous Topic</a>
+  							<a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next">Next Topic</a>
+  					  </div>
+  					</div>
+  		    </div>
+  				<div class="carousel-item">
+  					<div class="card" style="width: 18rem;">
+  					  <div class="card-body">
+  					    <h5 class="card-title">Home</h5>
+  							<ul class="text-left">
+                  <li>Do you live in a house or an apartment?</li>
+                  <li>Who lives at home with you?</li>
+                  <li>Do you have any pets?</li>
+                  <li>How many different places have you lived in your life?</li>
+                </ul>
+  							<a class="card-link" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous Topic</a>
+  							<a class="btn btn-primary" href="#carouselExampleIndicators" role="button" data-slide="next">Next Topic</a>
+  					  </div>
+  					</div>
+  		    </div>
+  				<div class="carousel-item">
+  					<div class="card" style="width: 18rem;">
+  					  <div class="card-body">
+  					    <h5 class="card-title">Hobbies</h5>
+  							<ul class="text-left">
+                  <li>Do you have any hobbies?</li>
+                  <li>What is your favorite weekend activity?</li>
+                  <li>Do you play any musical instruments? Sing? Dance?</li>
+                  <li>What is your favorite movie / TV show?</li>
+                </ul>
+  							<a class="card-link" href="#carouselExampleIndicators" role="button" data-slide="prev">Previous Topic</a>
+  							<a class="btn btn-success" href="#carouselExampleIndicators" role="button" onclick="location.href='video_call.html';">Call Now!</a>
+  					  </div>
+  					</div>
+  		    </div>
+  		  </div>
+        <br/><br/>
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
       </div>
-    <br/>
-    <div><button type="button" class="btn btn-success" onclick="location.href='video_call.html';"><i class="fa fa-phone" aria-hidden="true"></i>   Call Now!</button></div>
     </div>
   </body>
 </html>

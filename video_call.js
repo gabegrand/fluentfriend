@@ -15,6 +15,5 @@ $( document ).ready(function() {
     partnerInfo.innerHTML = `<h4>${curUser.name}</h4>
                             <p>Location: ${curUser.location}</p>
                             <button type="button" class="btn btn-primary"><i class="fa fa-commenting-o" aria-hidden="true"></i></button>
-                            <button type="button" class="btn btn-primary m"><i class="fa" aria-hidden="true"></i>I'm Stuck!</button>
                             <button type="button" class="btn btn-danger ml-4" onclick="location.href='feedback.html';"><i class="fa fa-phone" aria-hidden="true"></i>  End Call</button>`
 });
