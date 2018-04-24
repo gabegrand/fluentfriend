@@ -32,15 +32,10 @@ function buildProf(obj) {
                 <div class="card-body">
                   <h4 class="card-title">${obj.name}</h4>
                   <p class="card-text">${obj.location}</p>
+                  <div class="card card-body mb-3" style="height: 14rem;" align="left">
+                    ${obj.about}
+                  </div>  
                   <button type="button" class="btn btn-primary user_button" onclick="addScheduled(${obj.uid})">Schedule conversation</button>
-                  <button class="btn btn-info user_button" type="button" data-toggle="collapse" data-target="#collapseExample${obj.uid}" aria-expanded="false" aria-controls="collapseExample">
-                    About ${obj.name}
-                  </button>
-                  <div class="collapse" id="collapseExample${obj.uid}">
-                    <div class="card card-body">
-                      ${obj.about}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>`;
