@@ -23,7 +23,7 @@ $(document).ready(function() {
 });
 
 function buildScheduledProf(obj) {
-  return `<div class="row border-bottom pb-4 justify-content-center">
+  return `<div class="row border-bottom p-4 justify-content-center">
 		<div class="col-md-3 profile p">
 			<img src="media/${obj.img}" class="img-fluid rounded" />
 		</div>
