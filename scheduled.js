@@ -34,7 +34,7 @@ function buildScheduledProf(obj) {
 		</div>
 		<div class="col-md-4">
 			<div class="formBlock p-3 darkbox">
-				<p>Conversation Date & Time</p>
+				<p align="center">Conversation Date & Time</p>
 
 				<div class="form-group user_button">
                 <div class="input-group date" id="datetimepicker_${obj.uid}" data-target-input="nearest">
