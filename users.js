@@ -26,14 +26,14 @@ $( document ).ready(function() {
 });
 
 function buildProf(obj) {
-    return `<div class="profile col-md-4 mb-3">
-              <div class="card text-center" style="width: 20rem;">
+    return `<div class="profile col-md-4 mb-3 pb-2">
+              <div class="card text-center">
                 <img class="card-img-top" src="media/${obj.img}" alt="Card image cap">
                 <div class="card-body">
                   <h4 class="card-title">${obj.name}</h4>
                   <p class="card-text">${obj.location}</p>
-                  <div class="card card-body mb-3" style="height: 14rem;" align="left">
-                    ${obj.about}
+                  <div class="card card-body mb-3" style="height: 40vh;">
+                    <p class="text-left" style="font-size: 2.5vh;">${obj.about}</p>
                   </div>  
                   <button type="button" class="btn btn-primary user_button" onclick="addScheduled(${obj.uid})">Schedule conversation</button>
                 </div>
