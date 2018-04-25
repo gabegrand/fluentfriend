@@ -35,5 +35,7 @@ function reSchedule(){
 			localStorage.setItem('reported_users', JSON.stringify(reportedUsers));
     }
 
+    localStorage.setItem('feedback', selection);
+
     location.href='feedback_submitted.html';
 }
