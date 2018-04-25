@@ -13,13 +13,6 @@ $(document).ready(function() {
 		conversationTimes = JSON.parse(scheduledDateTime);
 	}
 
-	for (let uid in scheduledUsers) {
-		if (!scheduledUsers[uid] in conversationTimes) {
-			conversationTimes[scheduledUsers[uid]] = convDateTime;
-		}
-
-	}
-
   let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 
@@ -27,12 +20,16 @@ $(document).ready(function() {
     trigger : 'hover'
 	});
 
-	$("#reschedule_btn").on('click', function () {
+	$(".rescheduling").on('click', function () {
 	    $(this).tooltip('hide')
 	});
 });
 
 function buildScheduledProf(obj) {
+	if (!conversationTimes[obj.uid]) {
+		conversationTimes[obj.uid] = convDateTime;
+	}
+
   return `<div class="row border-bottom p-4 justify-content-center">
 		<div class="col-md-3 profile p">
 			<img src="media/${obj.img}" class="img-fluid rounded" />
@@ -48,7 +45,7 @@ function buildScheduledProf(obj) {
 
 				<div id="conversationdatetime_${obj.uid}">
 					<span data-toggle="tooltip" title="We've scheduled the conversation based on when you're both free!">${conversationTimes[obj.uid]}</span>
-					<button type="button" id="reschedule_btn" class="btn btn-primary btn-check" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${obj.uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>
+					<button type="button" class="btn btn-primary btn-check rescheduling" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${obj.uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>
 				</div>
 
 
@@ -91,7 +88,7 @@ function confirm(uid) {
 	let conversationDateTime = document.getElementById("conversationdatetime_" + uid);
   conversationDateTime.innerHTML =
 		`<span>${conversationTimes[uid]}</span>
-		<button type="button" id="reschedule_btn" class="btn btn-primary btn-check" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>`;
+		<button type="button" class="btn btn-primary btn-check rescheduling" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>`;
 }
 
 function startCall(uid) {
@@ -101,6 +98,8 @@ function startCall(uid) {
 
 function cancelCall(uid) {
   scheduledUsers = scheduledUsers.filter(u => u != uid);
+	delete conversationTimes[uid];
+	localStorage.setItem('conversationtimes', JSON.stringify(conversationTimes));
   localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers));
   let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
