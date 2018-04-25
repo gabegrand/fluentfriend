@@ -1,11 +1,10 @@
 $(document).ready(function() {
     let feedback = localStorage.getItem('feedback');
     let feedbackResponse = document.getElementById("feedbackResponse");
-    
 
     let curr_call_uid = localStorage.getItem('curr_call_uid');
     console.log(curr_call_uid);
-    
+
     if (curr_call_uid !== null){
         curUser = USERS[parseInt(curr_call_uid)];
     }
