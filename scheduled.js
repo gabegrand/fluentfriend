@@ -1,11 +1,24 @@
 let scheduledUsers = [];
-let convDateTime = "";
+let convDateTime = "04/25/2018 04:00 PM";
+let conversationTimes = {};
 
 $(document).ready(function() {
   let scheduledState = localStorage.getItem('scheduled_users');
   if (scheduledState != null) {
     scheduledUsers = JSON.parse(scheduledState);
   }
+
+	let scheduledDateTime = localStorage.getItem('conversationtimes');
+	if (scheduledDateTime != null) {
+		conversationTimes = JSON.parse(scheduledDateTime);
+	}
+
+	for (let uid in scheduledUsers) {
+		if (!scheduledUsers[uid] in conversationTimes) {
+			conversationTimes[scheduledUsers[uid]] = convDateTime;
+		}
+
+	}
 
   let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
@@ -34,7 +47,7 @@ function buildScheduledProf(obj) {
 				<p align="center">Conversation Date & Time</p>
 
 				<div id="conversationdatetime_${obj.uid}">
-					<span data-toggle="tooltip" title="We've scheduled the conversation based on when you're both free!">04/25/2018 04:00 PM</span>
+					<span data-toggle="tooltip" title="We've scheduled the conversation based on when you're both free!">${conversationTimes[obj.uid]}</span>
 					<button type="button" id="reschedule_btn" class="btn btn-primary btn-check" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${obj.uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>
 				</div>
 
@@ -62,20 +75,22 @@ function reschedule(uid) {
 	$('#datetimepicker_' + uid).datetimepicker({});
 
 	$('#datetimepicker_' + uid).on("change.datetimepicker", function (e) {
-			convDateTime = (e.date._d.getMonth() < 10 ? "0" : "") +
+			let currTime = (e.date._d.getMonth() < 10 ? "0" : "") +
 			(e.date._d.getMonth() + 1) + "/" + (e.date._d.getDate() < 10 ? "0" : "") +
 			e.date._d.getDate() + "/" + e.date._d.getFullYear() + " " +
 			(e.date._d.getHours() < 10 ? "0" : "") + (e.date._d.getHours() +
 			(e.date._d.getHours() > 12 ? -12 : 0)) + ":" +
 			(e.date._d.getMinutes() < 10 ? "0" : "") + e.date._d.getMinutes() + " " +
 			(e.date._d.getHours() > 12 ? "PM" : "AM");
+			conversationTimes[uid] = currTime;
 	});
 }
 
 function confirm(uid) {
+	localStorage.setItem('conversationtimes', JSON.stringify(conversationTimes));
 	let conversationDateTime = document.getElementById("conversationdatetime_" + uid);
   conversationDateTime.innerHTML =
-		`<span>${convDateTime}</span>
+		`<span>${conversationTimes[uid]}</span>
 		<button type="button" id="reschedule_btn" class="btn btn-primary btn-check" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>`;
 }
 
