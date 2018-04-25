@@ -16,6 +16,13 @@ $(document).ready(function() {
   let scheduledList = document.getElementById("scheduledList");
   scheduledList.innerHTML = USERS.filter(u => scheduledUsers.includes(u.uid)).map(u => buildScheduledProf(u)).join('');
 
+	let firstTime = localStorage.getItem("first_time");
+	if(!firstTime) {
+	    // first time loaded!
+	    localStorage.setItem("first_time","1");
+			$("#tooltip_" + scheduledUsers[0]).tooltip('show');
+	}
+
 	$('[data-toggle="tooltip"]').tooltip({
     trigger : 'hover'
 	});
@@ -44,7 +51,7 @@ function buildScheduledProf(obj) {
 				<p align="center">Conversation Date & Time</p>
 
 				<div id="conversationdatetime_${obj.uid}">
-					<span data-toggle="tooltip" title="We've scheduled the conversation based on when you're both free!">${conversationTimes[obj.uid]}</span>
+					<span id="tooltip_${obj.uid}" data-toggle="tooltip" title="We've scheduled the conversation based on when you're both free!">${conversationTimes[obj.uid]}</span>
 					<button type="button" class="btn btn-primary btn-check rescheduling" data-toggle="tooltip" title="Click here to reschedule conversation" onclick="reschedule(${obj.uid})"><i class="fa fa-repeat" aria-hidden="true"></i></button>
 				</div>
 
