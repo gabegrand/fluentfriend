@@ -31,7 +31,7 @@ function buildScheduledProf(obj) {
 		</div>
 		<div class="col-md-4">
 			<div class="formBlock p-3 darkbox">
-				<p>Conversation Date & Time</p>
+				<p align="center">Conversation Date & Time</p>
 
 				<div id="conversationdatetime_${obj.uid}">
 					<span data-toggle="tooltip" title="We've scheduled the conversation based on when you're both free!">04/25/2018 04:00 PM</span>

@@ -35,7 +35,7 @@ function buildProf(obj) {
                   <div class="card card-body mb-3" style="height: 40vh;">
                     <p class="text-left" style="font-size: 2.5vh;">${obj.about}</p>
                   </div>  
-                  <button type="button" class="btn btn-primary user_button" onclick="addScheduled(${obj.uid})">Schedule conversation</button>
+                  <button type="button" class="btn btn-primary user_button" onclick="addScheduled(${obj.uid})">Schedule chat</button>
                 </div>
               </div>
             </div>`;
