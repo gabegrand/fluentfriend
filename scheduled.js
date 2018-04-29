@@ -21,6 +21,7 @@ $(document).ready(function() {
 	    // first time loaded!
 	    localStorage.setItem("first_time","1");
 			$("#tooltip_" + scheduledUsers[0]).tooltip('show');
+			$("#tooltip_chat_" + scheduledUsers[0]).tooltip('show');
 	}
 
 	$('[data-toggle="tooltip"]').tooltip({
@@ -44,7 +45,7 @@ function buildScheduledProf(obj) {
 		<div class="col-md-3">
 			<h4>${obj.name}</h4>
 			<p>Location: ${obj.location}</p>
-			<button type="button" class="btn btn-primary"><i class="fa fa-commenting-o" aria-hidden="true"></i>  Send message</button>
+			<button type="button" class="btn btn-primary" id="tooltip_chat_${obj.uid}" data-toggle="tooltip" data-placement="bottom" title="You can chat with ${obj.name}! Send a message to coordinate a time that works better for your call, or to see if ${obj.name} is available now!"><i class="fa fa-commenting-o" aria-hidden="true"></i>  Send message</button>
 		</div>
 		<div class="col-md-4">
 			<div class="formBlock p-3 darkbox">
