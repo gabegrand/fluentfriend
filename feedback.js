@@ -25,7 +25,7 @@ function reSchedule(){
         localStorage.setItem('scheduled_users', JSON.stringify(scheduledUsers));
     }
 
-    if (selection == "report"){
+    if (selection == "report" || selection == "no"){
 			let reportedState = localStorage.getItem('reported_users');
 			if (reportedState != null) {
 				reportedUsers = JSON.parse(reportedState);
