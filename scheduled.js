@@ -1,5 +1,5 @@
 let scheduledUsers = [];
-let convDateTime = "04/25/2018 04:00 PM";
+let convDateTime = "05/01/2018 04:00 PM";
 let conversationTimes = {};
 
 $(document).ready(function() {
